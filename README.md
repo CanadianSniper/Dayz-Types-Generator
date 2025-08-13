@@ -1,8 +1,6 @@
 # Dayz Types Generator
 
 A tool to **create, edit, and export** `types.xml` for DayZ servers.  
-Includes **dark mode**, **preset loader** from vanilla `types.xml`, and **dropdown editors** for Categories, Usage, Value tiers, and Tags.
-
 ---
 
 ## 📦 Download & Run
