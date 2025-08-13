@@ -1,28 +1,17 @@
 # Dayz Types Generator
 
-A modern PySide6 desktop tool to **create, edit, and export** `types.xml` for DayZ servers.  
+A tool to **create, edit, and export** `types.xml` for DayZ servers.  
 Includes **dark mode**, **preset loader** from vanilla `types.xml`, and **dropdown editors** for Categories, Usage, Value tiers, and Tags.
-
-> Built for Windows. Works from source on any OS with Python 3.10+ and PySide6.
 
 ---
 
 ## 📦 Download & Run
 
-### Option A — Download the EXE (recommended)
 1. Go to **Releases** on this repo.
-2. Download the **`Dayz Types Generator`** onedir build (a folder with the EXE inside).
+2. Download the Dayz Types Generator`
 3. Run `Dayz Types Generator.exe`.
 
 > If SmartScreen warns: click **More info** → **Run anyway**. (See the Security notes below.)
-
-### Option B — Run from source
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt  # (PySide6 required)
-python types_generator.py
-```
 
 ---
 
@@ -89,78 +78,6 @@ Then use the **Preset** dropdown in the editor:
   - Detected categories are merged with the fixed Category dropdown options.
 - **Export types.xml**: **File → Export types.xml**  
   - Writes your current working list to `types.xml`.
-
----
-
-## ✅ Data fields supported
-
-- `name`
-- `nominal`, `lifetime`, `restock`  
-- `min`, `quantmin`, `quantmax`
-- `cost`
-- `flags` (all common booleans that appear in DayZ types)
-- `category` (single)
-- `usage` (list)
-- `value` (list; includes **Tier1–Tier4** presets)
-- `tag` (list; includes **none/shelves/floor/ground** presets)
-
----
-
-## 🌓 Dark Mode
-
-- Default is **Dark Mode** (Fusion style + tuned palette).
-- Toggle in **View → Dark Mode**.
-
----
-
-## 🛟 Tips & Troubleshooting
-
-- **“Save Changes to Selected” overwrote my item:**  
-  Use **New Type** first (it clears selection so Save = *Add*), or ensure no left-list item is selected before saving.
-- **Preset list is huge:**  
-  Start typing in the Preset dropdown to search; we can also enable a contains-filter completer if you prefer.
-- **AV / SmartScreen warning:**  
-  See **Security notes** below—use the onedir build, check the SHA-256 hash, and consider code signing for releases.
-
----
-
-## 🔐 Security notes
-
-- The release uses **onedir** (fewer AV flags than onefile).
-- No UPX packing (reduces false positives).
-- Version info is embedded into the EXE.
-- For extra trust:
-  - Verify the **SHA-256** in `checksums.txt` (on the Release).
-  - Build from source locally.
-  - Code signing is recommended for maintainers (we can help wire this into CI).
-
----
-
-## 🛠️ Build from source (developer)
-
-### Local
-```bat
-python -m venv .venv
-.venv\Scripts\activate
-pip install --upgrade pip
-pip install pyinstaller PySide6
-pyinstaller types_generator_onedir.spec --clean
-```
-
-### GitHub Actions (Windows)
-- Put the workflow at `.github/workflows/build-windows.yml` (provided).
-- Tag a release:
-```bat
-git tag v1.0.0
-git push origin v1.0.0
-```
-- The workflow builds and uploads artifacts + `checksums.txt`, and attaches them to the Release.
-
----
-
-## 📄 License
-
-MIT (or your choice—update this section if you prefer a different license).
 
 ---
 
